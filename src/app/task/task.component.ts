@@ -9,6 +9,8 @@ export class TaskComponent implements OnInit {
 
   constructor() { }
 
+  taskLibelle: string = "Publier un article sur Angular";
+
   ngOnInit(): void {
   }
 
