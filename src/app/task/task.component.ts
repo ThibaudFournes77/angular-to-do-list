@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -9,7 +9,7 @@ export class TaskComponent implements OnInit {
 
   constructor() { }
 
-  taskLibelle: string = "Publier un article sur Angular";
+  @Input() taskLibelle!: string;
 
   ngOnInit(): void {
   }
