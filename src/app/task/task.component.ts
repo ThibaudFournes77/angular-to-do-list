@@ -10,6 +10,7 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   @Input() taskLibelle!: string;
+  isDone: boolean = true;
 
   ngOnInit(): void {
   }

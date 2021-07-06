@@ -3,5 +3,5 @@
       <p class="task__label">{{taskLibelle}}</p>
       <input type="text" class="task__input" placeholder="Modifier l'intitulé..." />
     </div>
-    <button type="button" class="task__button">Fini !</button>
+    <button type="button" class="task__button" [disabled]="isDone">Fini !</button>
 </li>
