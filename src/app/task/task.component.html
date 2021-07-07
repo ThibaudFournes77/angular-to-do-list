@@ -1,4 +1,7 @@
-<li class="task">
+<li [ngClass]="{'task': true,
+                'task-done': isDone,
+                'task-to-do': !isDone}"
+>
     <div class="task__content">
       <p class="task__label">{{taskLibelle}}</p>
       <input type="text" class="task__input" placeholder="Modifier l'intitulé..." [(ngModel)]="taskLibelle" *ngIf="!isDone" />

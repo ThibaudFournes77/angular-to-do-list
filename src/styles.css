@@ -47,6 +47,16 @@ ul {
     padding: 5px 10px;
 }
 
+.task-done {
+    background-color: #eeffe0;
+    border: 2px solid #20a020;
+}
+
+.task-to-do {
+    background-color: #ffe0e0;
+    border: 2px solid #a02020;
+}
+
 .task__content {
     height: 100%;
     max-width: 50%;
