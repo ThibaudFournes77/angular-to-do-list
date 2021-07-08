@@ -9,6 +9,12 @@ export class TasksListComponent implements OnInit {
 
   constructor() { }
 
+  tasksList: string[] = [
+    "Créer mon portfolio",
+    "Publier un article sur Angular",
+    "Ecrire un article sur React et Redux"
+  ];
+
   ngOnInit(): void {
   }
 

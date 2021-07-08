@@ -1,5 +1,3 @@
 <ul>
-    <app-task taskLibelle="Créer mon portfolio"></app-task>
-    <app-task taskLibelle="Publier un article sur Angular"></app-task>
-    <app-task taskLibelle="Ecrire un article sur React et Redux"></app-task>
+    <app-task *ngFor="let task of tasksList" [taskLibelle]="task"></app-task>
 </ul>
