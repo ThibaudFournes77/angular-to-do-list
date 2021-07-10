@@ -1,7 +1,22 @@
 <form class="form">
     <h2 class="form__title">Ajouter une tâche</h2>
     <div class="form__fields">
-      <input type="text" class="form__input">
+      <div class="form-field">
+        <label for="task-libelle" class="form__label">Intitulé</label>
+        <input type="text" id="task-libelle" class="form__input">
+      </div>
+      <div class="form-field">
+        <label for="task-done" class="form__label">Finie</label>
+        <input type="checkbox" id="task-done">        
+      </div>
+      <div class="form-field">
+        <label for="task-priority" class="form__label">Priorité</label>
+        <select id="task-priority">
+          <option value="high">Elevée</option>
+          <option value="medium">Moyenne</option>
+          <option value="low">Faible</option>
+        </select>
+      </div>
       <button type="submit" class="form__submit">Ajouter</button>
     </div>
 </form>
