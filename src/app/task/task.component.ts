@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ITask } from '../interfaces/ITask';
 
 @Component({
   selector: 'app-task',
@@ -9,11 +10,11 @@ export class TaskComponent implements OnInit {
 
   constructor() { }
 
-  @Input() taskLibelle!: string;
+  @Input() task!: ITask;
   isDone: boolean = false;
 
   onTaskDone(): void {
-    this.isDone = true;
+    this.task.isDone = true;
   }
 
   ngOnInit(): void {

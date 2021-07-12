@@ -1,10 +1,14 @@
 <li [ngClass]="{'task': true,
-                'task-done': isDone,
-                'task-to-do': !isDone}"
+                'task-done': task.isDone,
+                'task-to-do': !task.isDone}"
 >
     <div class="task__content">
-      <p class="task__label">{{taskLibelle}}</p>
-      <input type="text" class="task__input" placeholder="Modifier l'intitulé..." [(ngModel)]="taskLibelle" *ngIf="!isDone" />
+      <p class="task__label">{{task.libelle}}</p>
+      <p [ngClass]="{'task__priority': true,
+                    'task__priority-low': task.priority === 'low',
+                    'task__priority-medium': task.priority === 'med',
+                    'task__priority-high': task.priority === 'high' }">{{task.priority}}</p>
+      <input type="text" class="task__input" placeholder="Modifier l'intitulé..." [(ngModel)]="task.libelle" *ngIf="!isDone" />
     </div>
-    <button type="button" class="task__button" [disabled]="isDone" (click)="onTaskDone()">Fini !</button>
+    <button type="button" class="task__button" [disabled]="task.isDone" (click)="onTaskDone()">Fini !</button>
 </li>

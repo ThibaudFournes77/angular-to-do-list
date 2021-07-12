@@ -77,13 +77,35 @@ ul {
     height: 100%;
     width: 75%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items:flex-start;
 }
 
 .task__label {
     font-size: calc(12px + 1vw);
+    width: 90%;
+}
+
+.task__priority {
+    font-size: calc(10px + 0.5vw);
+    width: 10%;
+    padding: 1% 2%;
+}
+
+.task__priority-low {
+    background-color: #051e64;
+    color: #FFFFFF;
+}
+
+.task__priority-medium {
+    background-color: #d47c08;
+    color: #FFFFFF;
+}
+
+.task__priority-high {
+    background-color: #ff0000;
+    color: #FFFFFF;
 }
 
 .task__input {
