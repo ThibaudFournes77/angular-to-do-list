@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todolist';
+
+  newTask: any;
+
+  handleNewTask($event: any) {
+    this.newTask = $event;
+    console.log('handleNewTask', this.newTask);
+  }
 }
