@@ -3,20 +3,21 @@
     <div class="form__fields">
       <div class="form-field">
         <label for="task-libelle" class="form__label">Intitulé</label>
-        <input type="text" id="task-libelle" name="libelle" class="form__input" ngModel>
+        <input type="text" id="task-libelle" name="libelle" class="form__input" ngModel #libelle="ngModel" required>
+        <p class="error-message" *ngIf="libelle.invalid">Veuillez remplir ce champ</p>
       </div>
       <div class="form-field">
         <label for="task-done" class="form__label">Finie</label>
         <input type="checkbox" id="task-done" name="isDone" ngModel>        
       </div>
       <div class="form-field">
-        <label for="task-priority" class="form__label">Priorité</label>
+        <label for="task-priority" class="form__label" ngModel="high">Priorité</label>
         <select id="task-priority" name="priority">
           <option value="high">Elevée</option>
           <option value="medium">Moyenne</option>
           <option value="low">Faible</option>
         </select>
       </div>
-      <button type="submit" class="form__submit">Ajouter</button>
+      <button type="submit" class="form__submit" [disabled]="f.invalid">Ajouter</button>
     </div>
 </form>

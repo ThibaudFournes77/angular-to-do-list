@@ -29,6 +29,7 @@ body {
 
 .form-field {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
 }
 
@@ -46,6 +47,11 @@ body {
     width: 100px;
     height: 30px;
     font-size: calc(12px + 1vw);
+}
+
+.error-message {
+    color: #ff0000;
+    width: 100%;
 }
 
 ul {
