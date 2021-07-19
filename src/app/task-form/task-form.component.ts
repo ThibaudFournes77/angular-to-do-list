@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-task-form',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskFormComponent implements OnInit {
 
-  constructor() { }
+  taskForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm();
+    this.taskForm.controls['priority'].setValue('high');
+  }
+
+  createForm() {
+    this.taskForm = this.formBuilder.group({
+      libelle: '',
+      isDone: false,
+      priority: '',
+    });
+  }
+
+  onSubmit() {
+    console.log(this.taskForm);
   }
 
 }

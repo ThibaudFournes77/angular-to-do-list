@@ -1,17 +1,17 @@
-<form class="form">
+<form class="form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <h2 class="form__title">Ajouter une tâche</h2>
     <div class="form__fields">
       <div class="form-field">
         <label for="task-libelle" class="form__label">Intitulé</label>
-        <input type="text" id="task-libelle" class="form__input">
+        <input type="text" id="task-libelle" class="form__input" formControlName="libelle">
       </div>
       <div class="form-field">
         <label for="task-done" class="form__label">Finie</label>
-        <input type="checkbox" id="task-done">        
+        <input type="checkbox" id="task-done" formControlName="isDone">        
       </div>
       <div class="form-field">
         <label for="task-priority" class="form__label">Priorité</label>
-        <select id="task-priority">
+        <select id="task-priority" formControlName="priority">
           <option value="high">Elevée</option>
           <option value="medium">Moyenne</option>
           <option value="low">Faible</option>
