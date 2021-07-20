@@ -17,6 +17,7 @@ export class TaskFormComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.submitEvent.emit(form.value);
+    form.resetForm();
   }
 
 }
