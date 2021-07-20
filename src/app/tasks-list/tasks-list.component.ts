@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ITask } from '../interfaces/ITask';
 
 @Component({
@@ -33,7 +33,19 @@ export class TasksListComponent implements OnInit {
     },
   ];
 
+  @Input() newTask!: ITask;
+
   ngOnInit(): void {
   }
+
+  ngOnChanges(): void {
+    if (this.newTask) {
+      this.addTask(this.newTask);
+    }
+  }
+
+  addTask(task: ITask) {
+    this.tasksList.unshift(task);
+  } 
 
 }

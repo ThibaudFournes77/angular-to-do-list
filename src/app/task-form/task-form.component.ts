@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,8 @@ export class TaskFormComponent implements OnInit {
   taskForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
+
+  @Output() submitEvent = new EventEmitter();
 
   ngOnInit(): void {
     this.createForm();
@@ -26,7 +28,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.taskForm);
+    this.submitEvent.emit(this.taskForm.value);
   }
 
 }
