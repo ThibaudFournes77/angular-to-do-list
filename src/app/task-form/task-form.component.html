@@ -3,7 +3,8 @@
     <div class="form__fields">
       <div class="form-field">
         <label for="task-libelle" class="form__label">Intitulé</label>
-        <input type="text" id="task-libelle" class="form__input" formControlName="libelle">
+        <input type="text" id="task-libelle" class="form__input" formControlName="libelle" required>
+        <p class="error-message" *ngIf="taskForm.controls.libelle.touched && taskForm.controls.libelle.hasError('required')">Ce champ est requis</p>
       </div>
       <div class="form-field">
         <label for="task-done" class="form__label">Finie</label>

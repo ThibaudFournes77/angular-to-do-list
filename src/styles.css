@@ -29,7 +29,15 @@ body {
 
 .form-field {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 10px;
+}
+
+.error-message {
+    color: #ff0000;
+    width: 100%;
+    text-align: center;
 }
 
 .form__label {

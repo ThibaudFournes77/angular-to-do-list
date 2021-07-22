@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-form',
@@ -21,14 +21,19 @@ export class TaskFormComponent implements OnInit {
 
   createForm() {
     this.taskForm = this.formBuilder.group({
-      libelle: '',
+      libelle: ['', Validators.required],
       isDone: false,
       priority: '',
     });
   }
 
   onSubmit() {
-    this.submitEvent.emit(this.taskForm.value);
+    this.taskForm.markAllAsTouched();
+    if (this.taskForm.valid) {
+      this.submitEvent.emit(this.taskForm.value);
+      this.taskForm.reset();
+      this.taskForm.controls['priority'].setValue('high');
+    }
   }
 
 }
