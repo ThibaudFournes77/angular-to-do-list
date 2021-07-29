@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ITask } from '../interfaces/ITask';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-tasks-list',
@@ -8,34 +9,14 @@ import { ITask } from '../interfaces/ITask';
 })
 export class TasksListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tasksService: TasksService) { }
 
-  tasksList: ITask[] = [
-    {
-      libelle: "Créer mon portfolio",
-      isDone: true,
-      priority: "high",
-    },
-    {
-      libelle: "Publier un article sur Angular",
-      isDone: false,
-      priority: "high",
-    },
-    {
-      libelle: "Ecrire un article sur React et Redux",
-      isDone: false,
-      priority: "med",
-    },
-    {
-      libelle: "Créer un bloc personnalisé pour la page profil",
-      isDone: false,
-      priority: "low",
-    },
-  ];
+  tasksList!: ITask[];
 
   @Input() newTask!: ITask;
 
   ngOnInit(): void {
+    this.tasksList = this.tasksService.getTasks();
   }
 
   ngOnChanges(): void {
