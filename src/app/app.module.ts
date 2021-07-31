@@ -6,6 +6,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { TaskComponent } from './task/task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { TasksService } from './services/tasks.service';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TasksService } from './services/tasks.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [TasksService],
   bootstrap: [AppComponent]

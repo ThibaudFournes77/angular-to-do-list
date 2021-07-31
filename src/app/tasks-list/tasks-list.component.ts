@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ITask } from '../interfaces/ITask';
 import { TasksService } from '../services/tasks.service';
 
@@ -12,11 +13,14 @@ export class TasksListComponent implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   tasksList!: ITask[];
+  subscription!: Subscription;
 
   @Input() newTask!: ITask;
 
   ngOnInit(): void {
-    this.tasksList = this.tasksService.getTasks();
+    this.subscription = this.tasksService.getTasks().subscribe(tasks => {
+      this.tasksList = tasks;
+    });
   }
 
   ngOnChanges(): void {
@@ -27,6 +31,10 @@ export class TasksListComponent implements OnInit {
 
   addTask(task: ITask) {
     this.tasksList.unshift(task);
-  } 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }

@@ -1,34 +1,15 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 import { ITask } from "../interfaces/ITask";
 
 @Injectable()
 export class TasksService {
-    constructor() { }
+    constructor(private httpClient: HttpClient) { }
 
-    tasksList: ITask[] = [
-      {
-        libelle: "Créer mon portfolio",
-        isDone: true,
-        priority: "high",
-      },
-      {
-        libelle: "Publier un article sur Angular",
-        isDone: false,
-        priority: "high",
-      },
-      {
-        libelle: "Ecrire un article sur React et Redux",
-        isDone: false,
-        priority: "med",
-      },
-      {
-        libelle: "Créer un bloc personnalisé pour la page profil",
-        isDone: false,
-        priority: "low",
-      },
-    ];
+    tasksList!: ITask[];
 
-    getTasks(): ITask[] {
-        return this.tasksList;
+    getTasks(): Observable<ITask[]> {
+      return this.httpClient.get<ITask[]>('http://localhost:5000/');
     }
 }
