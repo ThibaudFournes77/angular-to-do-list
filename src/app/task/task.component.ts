@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITask } from '../interfaces/ITask';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-task',
@@ -8,13 +9,18 @@ import { ITask } from '../interfaces/ITask';
 })
 export class TaskComponent implements OnInit {
 
-  constructor() { }
-
   @Input() task!: ITask;
-  isDone: boolean = false;
+
+  constructor(
+    private tasksService: TasksService,
+  ) { }
 
   onTaskDone(): void {
-    this.task.isDone = true;
+    const updatedTask = {
+      ...this.task,
+      isDone: !this.task.isDone,
+    };
+    this.tasksService.taskToUpdate.next(updatedTask);
   }
 
   ngOnInit(): void {

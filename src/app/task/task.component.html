@@ -8,7 +8,7 @@
                     'task__priority-low': task.priority === 'low',
                     'task__priority-medium': task.priority === 'med',
                     'task__priority-high': task.priority === 'high' }">{{task.priority}}</p>
-      <input type="text" class="task__input" placeholder="Modifier l'intitulé..." [(ngModel)]="task.libelle" *ngIf="!isDone" />
+      <input type="text" class="task__input" placeholder="Modifier l'intitulé..." [(ngModel)]="task.libelle" *ngIf="!task.isDone" />
     </div>
     <button type="button" class="task__button" [disabled]="task.isDone" (click)="onTaskDone()">Fini !</button>
 </li>

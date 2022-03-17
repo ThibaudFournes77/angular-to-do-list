@@ -21,6 +21,18 @@ export class TasksListComponent implements OnInit {
     this.subscription = this.tasksService.getTasks().subscribe(tasks => {
       this.tasksList = tasks;
     });
+
+    this.tasksService.taskToUpdate.subscribe(updatedTask => {
+      if (this.tasksList && updatedTask) {
+        this.tasksList = this.tasksList.map(task => {
+          if (task.id === updatedTask.id) {
+            return updatedTask;
+          } else {
+            return task;
+          }
+        })
+      }
+    });
   }
 
   ngOnChanges(): void {
